@@ -1,0 +1,28 @@
+#othello-wrapper table {
+  width: 100%;
+  height: 100%;
+  background-color: #286316;
+}
+#othello-wrapper tbody {
+  background-image: url('/js-othello/img/othello_board.png');
+  background-size: cover;
+}
+#othello-wrapper tbody, #othello-wrapper  tr, #othello-wrapper  td {
+  background-color: rgba(0, 0, 0, 0);
+}
+#othello-wrapper td {
+  min-width: 100%;
+  min-height: 100%;
+  /*outline: 1px solid black;*/
+  transition-duration: 1s;
+}
+#othello-wrapper td.player-one {
+  margin: 5%;
+  background-image: url('/js-othello/img/black_piece.png');
+  background-size: cover;
+}
+#othello-wrapper td.player-two {
+  margin: 5%;
+  background-image: url('/js-othello/img/white_piece.png');
+  background-size: cover;
+}
