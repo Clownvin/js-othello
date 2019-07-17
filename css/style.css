@@ -13,7 +13,7 @@
 #othello-wrapper td {
   min-width: 100%;
   min-height: 100%;
-  /*outline: 1px solid black;*/
+  outline: 1px solid black;
   transition-duration: 1s;
 }
 #othello-wrapper td.player-one {
