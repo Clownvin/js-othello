@@ -38,13 +38,13 @@
       resetBoard();
       return;
     }
-    if (currentPlayer === BLACK && hasMove(WHITE)) {
-      currentPlayer = WHITE;
-      console.log('White\'s turn');
+    let opponent = currentPlayer === BLACK ? WHITE : BLACK;
+    if (hasMove(opponent)) {
+      currentPlayer = opponent;
     } else {
-      currentPlayer = BLACK;
-      console.log('Black\'s turn');
+      console.log(`Skipping ${opponent}'s turn because they have no moves.`);
     }
+    console.log(`${currentPlayer}'s turn`);
   }
 
   function score() {
@@ -73,6 +73,9 @@
         found = true;
       }
     });
+    if (found) {
+      console.log("has move at: "+x+", "+y);
+    }
     return found;
   }
 
