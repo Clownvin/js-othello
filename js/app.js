@@ -63,19 +63,23 @@
     return {black: black, white: white};
   }
 
-  function hasMove(player) {
+  function checkMove(player, x, y) {
     let found = false;
+    if (boardState[y][x] !== NONE) {
+      return false;
+    }
+    DIRECTIONS.forEach((direction) => {
+      if (walkPath(player, x, y, direction[0], direction[1]).canWalk) {
+        found = true;
+      }
+    });
+    return found;
+  }
+
+  function hasMove(player) {
     for (let y = 0; y < 8; y++) {
       for (let x = 0; x < 8; x++) {
-        if (boardState[y][x] !== NONE) {
-          continue;
-        }
-        DIRECTIONS.forEach((direction) => {
-          if (walkPath(player, x, y, direction[0], direction[1]).canWalk) {
-            found = true;
-          }
-        });
-        if (found) {
+        if (checkMove(player, x, y)) {
           return true;
         }
       }
@@ -119,6 +123,15 @@
         piece.id = `piece-${x}-${y}`;
         piece.classList.toggle(NONE, true);
         piece.addEventListener('click', () => putPiece(x, y));
+        piece.addEventListener('mouseover', () => {
+          if (!checkMove(currentPlayer, x, y)) {
+            return;
+          }
+          piece.classList.toggle('possible', true);
+        });
+        piece.addEventListener('mouseout', () => {
+          piece.classList.toggle('possible', false);
+        });
         parent.appendChild(piece);
       }
     }

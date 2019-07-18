@@ -19,3 +19,7 @@
 #othello-container div.white {
   background-image: url('/js-othello/img/white_piece.png');
 }
+#othello-container div.possible {
+  box-shadow: inset 0 0 10px #52A852;
+  border-radius: 45px;
+}
