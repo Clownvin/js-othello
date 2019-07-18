@@ -23,7 +23,6 @@
 }
 #othello-container div.possible {
   background-image: none;
-  opacity: 0.5 !important;
 }
 #othello-container div.possible.black {
   box-shadow: inset 0 0 15px black;
