@@ -3,6 +3,7 @@
   grid-template-columns: auto auto auto auto auto auto auto auto;
   background-image: url('/js-othello/img/othello_board.png');
   background-size: cover;
+  margin: 0 auto;
 }
 #othello-container div {
   background-color: rgba(0, 0, 0, 0);
@@ -10,11 +11,11 @@
   background-size: 85%;
   background-repeat: no-repeat;
   background-position: center;
-  transition-duration: .5s;
+  transition-duration: .33s;
 }
-#othello-container div.player-one {
+#othello-container div.black {
   background-image: url('/js-othello/img/black_piece.png');
 }
-#othello-container div.player-two {
+#othello-container div.white {
   background-image: url('/js-othello/img/white_piece.png');
 }
