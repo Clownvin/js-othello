@@ -125,15 +125,21 @@
         let piece = document.createElement('div');
         piece.id = `piece-${x}-${y}`;
         piece.classList.toggle(NONE, true);
-        piece.addEventListener('click', () => putPiece(x, y));
+        piece.addEventListener('click', () => {
+          putPiece(x, y);
+          piece.classList.toggle('possible', false);
+        });
         piece.addEventListener('mouseover', () => {
           if (!checkMove(currentPlayer, x, y)) {
             return;
           }
           piece.classList.toggle('possible', true);
+          piece.classList.toggle(currentPlayer, true);
         });
         piece.addEventListener('mouseout', () => {
           piece.classList.toggle('possible', false);
+          if (boardState[y][x] !== currentPlayer)
+            piece.classList.toggle(currentPlayer, false);
         });
         parent.appendChild(piece);
       }
